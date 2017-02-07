@@ -6,15 +6,21 @@
 
 Create 10 new version of input.jpg, will create input-1.jpg, input-2.jpg, ..., input-n.jpg.
 
+```
 $ mutate -n 10 input.jpg
+```
 
 Create 1 new version of input.jpg, applying 50 random operations before saving:
 
+```
 $ mutate -n 1 -p 50 input.jpg
+```
 
 Create 10,000 new versions of input.jpg, slightly lowered chaos level and 15 operations per image, save the results in the directory /srv/storage0:
 
+```
 $ mutate -n 10000 -p 15 -c 0.15 input.jpg -o /srv/storage0
+```
 
 ## Building and dependencies
 
@@ -81,6 +87,6 @@ Misc operations
 
 ## License
 
-Copyrigt (c) 2017 Teorem AB
+Copyright (c) 2017 Teorem AB
 
 Mutate is free and licensed under the MIT license.
