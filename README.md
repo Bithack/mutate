@@ -2,24 +2,33 @@
 
 `mutate` is a command line tool for generating many new versions of images by applying and compositing random image operations. This can be useful when generating large amounts neural networking training data, which is exactly why the tool was created.
 
+![Example output images](/example.jpg?raw=true "Example output images")
+
 ## Example usage
 
-Create 10 new version of input.jpg, will create input-1.jpg, input-2.jpg, ..., input-n.jpg.
+Create 10 new version of lena.jpg, will create lena-1.jpg, lena-2.jpg, ..., lena-n.jpg.
 
 ```
-$ mutate -n 10 input.jpg
+$ mutate -n 10 lena.jpg
 ```
 
-Create 1 new version of input.jpg, applying 50 random operations before saving:
+Create 1 new version of lena.jpg, applying 50 random operations before saving:
 
 ```
-$ mutate -n 1 -p 50 input.jpg
+$ mutate -n 1 -p 50 lena.jpg
 ```
 
-Create 10,000 new versions of input.jpg, slightly lowered chaos level and 15 operations per image, save the results in the directory /srv/storage0:
+Create 10,000 new versions of lena.jpg, slightly lowered chaos level and 15 operations per image, save the results in the directory /srv/storage0:
 
 ```
-$ mutate -n 10000 -p 15 -c 0.15 input.jpg -o /srv/storage0
+$ mutate -n 10000 -p 15 -c 0.15 lena.jpg -o /srv/storage0
+```
+
+The montage in this README was generated with:
+
+```
+$ mutate -n 42 -c 0.15 lena.jpg -o out/
+$ montage out/*.jpg example.jpg # imagemagick tool
 ```
 
 ## Building and dependencies
@@ -36,7 +45,7 @@ Building and running:
 
 ```
 $ make
-$ ./mutate -n 1 -p 10 input.jpg
+$ ./mutate -n 1 -p 10 lena.jpg
 ```
 
 ## Operations applied by `mutate`
